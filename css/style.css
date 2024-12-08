@@ -7068,10 +7068,3 @@ pre {
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
   left: 0px !important;
 }
-.aplayer-fixed {
-  position: fixed;
-  right: 20px;
-  top: calc(50% + 200px);
-  width: 300px;
-  z-index: 1000;
-}
