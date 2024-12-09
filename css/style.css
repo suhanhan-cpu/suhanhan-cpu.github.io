@@ -7068,3 +7068,83 @@ pre {
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
   left: 0px !important;
 }
+/* 调节字体大小 */
+.top .title font {
+  font-size: 1em;
+}
+/* 动态渐变色动画 */
+/* 默认状态 */
+.top .title span {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -khtml-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  background: linear-gradient(90deg, #f00, #ff7300, #ffeb00, #47ff00, #0fe, #2b65ff, #8000ff);
+  background-size: 300% 300%;
+  -webkit-background-size: 300% 300%;
+  -moz-background-size: 300% 300%; /* 放大背景实现渐变动画效果 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* 透明背景裁剪文字 */
+  animation: gradient-animation 5s ease infinite;
+  -webkit-animation: gradient-animation 5s ease infinite;
+  -khtml-animation: gradient-animation 5s ease infinite;
+  -moz-animation: gradient-animation 5s ease infinite;
+  -o-animation: gradient-animation 5s ease infinite;
+  -ms-animation: gradient-animation 5s ease infinite; /* 5秒循环渐变 */
+}
+/* 悬停状态 */
+.top .title:hover span:nth-child(1) {
+  margin-right: 10px;
+}
+.top .title:hover span:nth-child(2) {
+  margin-left: 10px;
+}
+.top .title:hover span {
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff7300, 0 0 40px #ffeb00, 0 0 80px #47ff00, 0 0 120px #2b65ff, 0 0 160px #8000ff;
+}
+@-moz-keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
