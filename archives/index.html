@@ -2109,7 +2109,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1734856385277),
+    lastupdate: new Date(1734886727274),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2406,63 +2406,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <div class="cover-wrapper  dock" id='half'>
-        
-  <div class='cover-bg lazyload placeholder' data-bg="https://macos-typora-1326830707.cos.ap-nanjing.myqcloud.com/img202412081753734.png"></div>
-
-<div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title"><font><span>suhanhan's blog</span></font></p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
-        
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <i class='fa-solid fa-rss fa-fw'></i><p>博客</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              active-action="action-categories">
-              <i class='fa-solid fa-folder-open fa-fw'></i><p>分类</p>
-            </a>
-          
-            <a href="/archives/"
-              
-              
-              active-action="action-archives">
-              <i class='fa-solid fa-archive fa-fw'></i><p>归档</p>
-            </a>
-          
-            <a href="/friends/"
-              
-              
-              active-action="action-friends">
-              <i class='fa-solid fa-link fa-fw'></i><p>友链</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              active-action="action-about">
-              <i class='fa-solid fa-info-circle fa-fw'></i><p>关于</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
+        <% if (theme.plugins.parallax.enable) { %>
+  <div id="parallax-window"></div>
+<% } else if (theme.plugins.lazyload && theme.plugins.lazyload.enable) { %>
+  <div class='cover-bg lazyload placeholder' data-bg="<%- theme.cover.background %>"></div>
+<% } else { %>
+  <div class='cover-bg' style='background-image:url(<%- theme.cover.background %>)'></div>
+<% } %>
+<%- partial(theme.cover.layout_scheme) %>
       </div>
     
   
@@ -2483,7 +2434,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 						<h2>2024</h2>
 					
 						<div class='timenode'>
-								<a class="meta" href="/2024/12/22/%E5%8F%91%E5%B8%83%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+								<a class="meta" href="/2024/12/22/Common%20Prime%20RSA/">
+									<time>12-22</time>
+									
+										Common Prime RSA
+									
+									
+									
+									
+								</a>
+						</div>
+				
+			
+				
+				
+					
+						<div class='timenode'>
+								<a class="meta" href="/2024/12/22/%E5%8B%92%E8%AE%A9%E5%BE%B7%E5%92%8C%E9%9B%85%E5%8F%AF%E6%AF%94/">
 									<time>12-22</time>
 									
 										勒让德和雅可比
@@ -2499,7 +2466,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 				
 					
 						<div class='timenode'>
-								<a class="meta" href="/2024/12/21/%E5%8F%91%E5%B8%83%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+								<a class="meta" href="/2024/12/21/2024%20CISCN%20x%20%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%93%81%E4%BA%BA%E4%B8%89%E9%A1%B9%20%E5%88%9D%E8%B5%9B%20WriteUp/">
 									<time>12-21</time>
 									
 										2024 CISCN x 长城杯铁人三项 初赛 WriteUp
@@ -2607,12 +2574,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/crypto/" href="/categories/crypto/"
             active-action="action-categoriescrypto"
-            ><div class='name'>crypto</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>crypto</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/crypto/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/" href="/categories/crypto/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/"
             active-action="action-categoriescryptoE697A5E5B8B8E5ADA6E4B9A0"
-            ><div class='name'>日常学习</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>日常学习</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/crypto/%E6%AF%94%E8%B5%9B/" href="/categories/crypto/%E6%AF%94%E8%B5%9B/"
