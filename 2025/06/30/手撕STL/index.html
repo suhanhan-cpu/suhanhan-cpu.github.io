@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#<%- theme.info.theme_version %>'>
+  <%- meta_generator() %>
+  <meta name="Volantis" content="<%- theme.info.theme_version %>">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  <%- generate_seo(theme, page) %>
+  <%- autoCanonical(config, page) %>
+  <!-- 渲染优化 -->
+  <%_ if (theme.dns_prefetch && theme.dns_prefetch.length){ _%>
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+    <%_ getList(theme.dns_prefetch).forEach(function(item){ _%>
+      <link rel='dns-prefetch' href='<%- item %>'>
+      <link rel="preconnect" href="<%- item %>" crossorigin>
+    <%_ }) _%>
+  <%_ } _%>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <%_ if (theme.csp.enable) { _%>
+    <meta http-equiv="Content-Security-Policy" content="<%- theme.csp.content %>">
+  <%_ } _%>
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <!-- import head_begin begin -->
+  <%_ if (config.import && config.import.head_begin){ _%>
+    <%_ getList(config.import.head_begin).forEach(function(item){ _%>
+      <%- item %>
+    <%_ }) _%>
+  <%_ } _%>
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  <%- volantis_inject('headBegin') %>
+  <!-- Custom Files headBegin end-->
+  <%_ if (config.favicon) { _%>
+    <link rel="shortcut icon" type='image/x-icon' href="<%- url_for(config.favicon) %>">
+  <%_ } _%>
+  <link rel="preload" href="<%- theme.cdn.volantis_style %>" as="style">
+  <%- generate_preload_fontfamily(theme) %>
+  <!-- feed -->
+  <%_ if (config.feed && config.feed.path){ _%>
+    <%_ getList(config.feed.path).forEach(function(item){ _%>
+      <%- feed_tag(item, {title: config.title}) %>
+    <%_ }) _%>
+  <%_ } _%>
+  <!-- 页面元数据 -->
+  <%- generate_title(config, theme, page) %>
+  <%- generate_keywords(config, theme, page) %>
+  <%- generate_description(config, theme, page) %>
+  <%- open_graph(theme.open_graph) %>
+  <style>
+    /* 首屏样式 */
+    <%- FirstCSS() %>
+  </style>
+  <link rel="stylesheet" href="<%- theme.cdn.volantis_style %>" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="<%- theme.cdn.volantis_style %>"></noscript>
+  <%_ if (theme.plugins.darkmode.enable) { _%>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
+  <%_ } _%>
+  <%- partial('../_plugins/end-of-support/script') %>
+  <%- partial('scripts/global') %>
+  <!-- import head_end begin -->
+  <%_ if (config.import && config.import.head_end){ _%>
+    <%_ getList(config.import.head_end).forEach(function(item){ _%>
+      <%- item %>
+    <%_ }) _%>
+  <%_ } _%>
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
+  <%- volantis_inject('headEnd') %>
+  <!-- Custom Files headEnd end-->
+</head>
+  <body itemscope itemtype="https://schema.org.cn/WebPage">
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <header itemscope itemtype="https://schema.org.cn/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone'>
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://macos-typora-1326830707.cos.ap-nanjing.myqcloud.com/img202412252110588.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+      
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="https://schema.org.cn/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/30/手撕STL/">
+  <span hidden itemprop="publisher" itemscope itemtype="https://schema.org.cn/Organization">
+    <meta itemprop="name" content="suhanhan的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="https://schema.org.cn/Post">
+    <meta itemprop="name" content="suhanhan的博客">
+    <meta itemprop="description" content="目前主要还是记录一些关于CTF密码学的学习历程">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        手撕STL
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="https://schema.org.cn/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">suhanhan</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  
+  
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/">就业学习</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/">开发测试</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/">手撕STL</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/">vector的实现</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">就业学习</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/" itemprop="url"><span itemprop="name">开发测试</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/" itemprop="url"><span itemprop="name">手撕STL</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/" itemprop="url"><span itemprop="name">vector的实现</span></a>
+      </span>
+    
+  </div>
+  
+
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-06-30T14:54:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2025年6月30日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_page_pv">
+        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+      </span>
+        
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>我们先一步一步来实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myVector</span> &#123;</span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">    T* elements;  </span><br><span class="line">    <span class="type">size_t</span> capacity;</span><br><span class="line">    <span class="type">size_t</span> current_size;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>template &lt;typename T&gt;</code></li>
+</ol>
+<p>这句话其实可以这么理解：我要定义一个“模板”，T 是一个占位符类型，在使用这个模板时才会指定具体的类型。</p>
+<ul>
+<li>所以T可以理解为表示变量类型的变量</li>
+</ul>
+<p>也就是比如说当你使用这个类的时候</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myVector&lt;<span class="type">int</span>&gt; v1;     <span class="comment">// 这里 T 是 int</span></span><br><span class="line">myVector&lt;<span class="type">double</span>&gt; v2;  <span class="comment">// 这里 T 是 double</span></span><br></pre></td></tr></table></figure>
+<p>这里的T就是你传进来的类型</p>
+<ul>
+<li>typename也就可以理解为类型参数，也可以用class代替</li>
+</ul>
+<ol start="2">
+<li><code>T* elements;</code></li>
+</ol>
+<ul>
+<li>这个实际上是一个指针，指向elements这个数组，里面元素的类型为T*，可以是int*、double*等等</li>
+</ul>
+<ol start="3">
+<li><code>size_t capacity;</code></li>
+</ol>
+<ul>
+<li>size_t的”容量“很大，是和平台相关的，所以他很适合用来表示数组的长度，所以等等</li>
+<li>capacity表示的是当前数组分配了多少容量，也就是elements能存放多少个元素，比如说你当前插入了4个元素，但是为了提高效率，他可能分配了容量为8的数组</li>
+</ul>
+<ol start="4">
+<li><code>size_t current_size;  </code></li>
+</ol>
+<ul>
+<li>current_size表示当前插入的元素的个数</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">myVector</span>() : <span class="built_in">elements</span>(<span class="literal">nullptr</span>), <span class="built_in">capacity</span>(<span class="number">0</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    ~<span class="built_in">myVector</span>()&#123;</span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>myVector() : elements(nullptr), capacity(0), current_size(0) &#123;&#125;</code></p>
+<ul>
+<li>
+<p>构造函数常用这种写法，变量直接初始化，更加高效</p>
+</li>
+<li>
+<p>elements(nullptr)：把 elements 初始化为空指针，表示当前没有分配任何内存</p>
+</li>
+<li>
+<p>capacity(0)：容量初始化为 0</p>
+</li>
+<li>
+<p>current_size(0)：当前实际存储的元素个数也为 0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>~myVector()</code></p>
+<ul>
+<li>
+<p>自动释放内存，避免内存泄漏</p>
+</li>
+<li>
+<p>elements 是用 new[] 分配的，所以要用 delete[] 来释放它</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>下面两个是<strong>拷贝构造函数</strong>和<strong>拷贝赋值运算符</strong>，这边说明一下两者的调用条件</p>
+<ul>
+<li>拷贝构造函数是用一个已经存在的对象去初始化一个新对象（这个新对象还不存在）</li>
+<li>拷贝赋值运算是把一个已经存在的对象的值赋给另外一个已经存在的对象</li>
+</ul>
+<p>具体可以通过如下的代码来方便理解</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Test</span>() &#123; cout &lt;&lt; <span class="string">&quot;Default constructor\n&quot;</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Test</span>(<span class="type">const</span> Test&amp; other) &#123; cout &lt;&lt; <span class="string">&quot;Copy constructor\n&quot;</span>; &#125;</span><br><span class="line"></span><br><span class="line">    Test&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Test&amp; other) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Copy assignment operator\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Test a;        <span class="comment">// Default constructor</span></span><br><span class="line">    Test b = a;    <span class="comment">// ✅ Copy constructor</span></span><br><span class="line">    Test c;        </span><br><span class="line">    c = a;         <span class="comment">// ✅ Copy assignment operator</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说白了就是</p>
+<ul>
+<li><code>Test b = a;</code> 或<code> Test b(a);</code>调用的是拷贝构造函数</li>
+<li><code>Test c; c = a;</code>调用的是拷贝赋值运算符</li>
+</ul>
+<p><strong>拷贝构造函数</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">myVector</span>(<span class="type">const</span> myVector&amp; other) : <span class="built_in">capacity</span>(other.capacity), <span class="built_in">current_size</span>(other.current_size)&#123;</span><br><span class="line">    elements = <span class="keyword">new</span> T[capacity];  </span><br><span class="line">    <span class="built_in">copy</span>(other.elements, other.elements + current_size, elements);  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>构造函数重载，这部分其实就是拷贝构造函数，它的作用是：当你用一个已存在的对象去创建一个新对象时，<strong>按值复制它的内容</strong>。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myVector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">a.<span class="built_in">push_back</span>(<span class="number">10</span>);</span><br><span class="line">myVector&lt;<span class="type">int</span>&gt; b = a;  <span class="comment">// 调用了拷贝构造函数</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>如果没有这个函数的，编译器会默认生成一个浅拷贝，就是拷贝的是引用，新对象和旧对象共用的是一块内存地址</p>
+</li>
+<li>
+<p><code>myVector(const myVector&amp; other) : capacity(other.capacity), current_size(other.current_size)</code></p>
+<ul>
+<li>这部分是直接初始化了成员变量，然后{}里面再写了具体的实现</li>
+<li><code>const myVector&amp; other</code>可以理解为定义函数的时候的参数，类似于<code>const vector&lt;int&gt;&amp; other</code></li>
+<li><code>myVector&amp; other</code>这边的<code>myVector&amp;</code>实际上就是一个引用，这时候执行<code>myVector&lt;int&gt; b = a; </code>，<code>other</code>就是<code>a</code>的一个别名</li>
+</ul>
+</li>
+<li>
+<p><code>elements = new T[capacity]; </code></p>
+<ul>
+<li>//分配一块新的类型为T，大小为capacity的动态数组内存，类似于int[5]这样的</li>
+</ul>
+</li>
+<li>
+<p><code>copy(other.elements, other.elements + current_size, elements);</code></p>
+<ul>
+<li>主要是实现值的拷贝</li>
+<li>参数分别是源起始地址，源结束地址，目标地址</li>
+</ul>
+</li>
+</ul>
+<p>到拷贝赋值预算符之前，先理解一下引用、地址和指针三者的区别</p>
+<ul>
+<li>指针</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line"><span class="type">int</span>* p = &amp;x;      <span class="comment">// p 是一个指针，保存了 x 的地址</span></span><br><span class="line">std::cout &lt;&lt; *p;  <span class="comment">// 👉 解引用，取出 p 指向的值（就是 x 的值：42）</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>地址</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line">std::cout &lt;&lt; &amp;x &lt;&lt; std::endl;  <span class="comment">// 👉 打印的是 x 的地址（内存位置）</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>引用</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line"><span class="type">int</span>&amp; ref = x;     <span class="comment">// ref 是 x 的“引用”，它不是地址，也不是副本</span></span><br><span class="line">ref = <span class="number">100</span>;</span><br><span class="line">std::cout &lt;&lt; x;   <span class="comment">// 👉 输出 100，因为 ref 就是 x</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>引用就是变量的别名，两个名字指向<strong>同一个值</strong></li>
+</ul>
+<p><strong>拷贝赋值运算符</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">myVector&amp; <span class="keyword">operator</span>= (<span class="type">const</span> myVector&amp; other)&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> != &amp;other)&#123;</span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">        capacity = other.capacity;</span><br><span class="line">        current_size = other.current_size;</span><br><span class="line">        elements = <span class="keyword">new</span> T[other.capacity];</span><br><span class="line">        <span class="built_in">copy</span>(other.elements, other.elements + current_size, elements);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>myVector&amp; operator= (const myVector&amp; other)</code>，写<code>b = a</code>的时候，等价于<code>b.operator=(a);</code>
+<ul>
+<li>这边的<code>myVector&amp;</code>是返回类型，结合最后return的<code>*this</code>以支持链式赋值<code>a = b = c</code>，等价于<code>a = (b = c)</code></li>
+<li><code>operator=</code>是重载复制运算符，还有例如<code>operator+</code>等等</li>
+<li><code>(const myVector&amp; other)</code>也就是<code>a</code>的别名</li>
+</ul>
+</li>
+<li>实际上就是对赋值运算符（=）进行重载，当你写<code>b = a</code>的时候就是把b的内容复制到a当中</li>
+<li>这边的<code>this</code>是一个指针，他指向当前调用这个函数的对象，所以当执行的是<code>b = a</code>的时候，这边的<code>this</code>指向的就是<code>&amp;b</code>，<code>*this</code>就是解引用，得到<code>b</code>这个对象</li>
+</ul>
+<p>例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myVector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">a.<span class="built_in">push_back</span>(<span class="number">10</span>);  <span class="comment">// push_back 函数内部，this 指向 a</span></span><br></pre></td></tr></table></figure>
+<p>在这边<code>b.operator=(a);</code>，也就是调用了b的成员函数<code>operator=()</code>，所以这时候的<code>this</code>指向的是<code>b</code></p>
+<ul>
+<li>这边的<code>other</code>就是<code>a</code>的一个引用，也就是a这个对象，而<code>this</code>是一个指针，所以要使用<code>&amp;other</code></li>
+<li>这边的<code>elements</code>、<code>capacity</code>和<code>current_size</code>都是<code>b</code>，复制前要先<code>delete</code></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index)&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> elements[index];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index) <span class="type">const</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> elements[index];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二种加了<code>const</code>表示为常成员函数，只读不改</li>
+</ul>
+<p>例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myVector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line">v[<span class="number">0</span>] = <span class="number">100</span>;   <span class="comment">// ✅ 用的第一个版本，可以修改</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> myVector&lt;<span class="type">int</span>&gt; cv;</span><br><span class="line"><span class="type">int</span> x = cv[<span class="number">0</span>]; <span class="comment">// ✅ 用的第二个版本，只能读，不能改</span></span><br></pre></td></tr></table></figure>
+<p>接下来是扩容函数<code>reserve</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">reserve</span><span class="params">(<span class="type">size_t</span> newCapacity)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity &gt; capacity)&#123;</span><br><span class="line">        T* newElements = <span class="keyword">new</span> T[newCapacity];</span><br><span class="line">        <span class="built_in">copy</span>(elements, elements + current_size, newElements);</span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">        elements = newElements;</span><br><span class="line">        capacity = newCapacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个功能挺简单的，看都看得懂</p>
+<p>然后是<code>push_back</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; input)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size == capacity)&#123;</span><br><span class="line">        capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    elements[current_size++] = input;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>当需要添加元素的时候，如果检测到已经满了，就会扩容
+<ul>
+<li>如果当前是空的，也就是<code>capacity = 0</code>的时候，就会调用<code>reserve(1)</code>，否则就会两倍扩容</li>
+</ul>
+</li>
+</ul>
+<p><code>pop_back</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size) current_size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这边不需要释放内存，因为<code>push_back</code>里面新值也是覆盖操作的</li>
+</ul>
+<p>获取大小的<code>size</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> current_size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>insert</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">const</span> <span class="type">size_t</span> index, <span class="type">const</span> T&amp; input)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt; current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = current_size; i &gt; index; i--)&#123;</span><br><span class="line">        elements[i] = elements[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    elements[index] = input;</span><br><span class="line">    current_size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>考虑三种情况</p>
+<ul>
+<li><code>index &gt; current_size</code>，可以<code>=</code>的，相当于<code>push_back</code>，<code>&gt;</code>就是表示越界了</li>
+<li>如果要插入的时候刚好满了，要扩容一下</li>
+<li>如果没有异常情况就是元素右移后再插入</li>
+</ul>
+<p><code>clear</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">    current_size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后的话是迭代器接口</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">T* <span class="title">begin</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">T* <span class="title">end</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements + current_size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> T* <span class="title">begin</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> T* <span class="title">end</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements + current_size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>begin</code>指向第一个元素的位置</p>
+</li>
+<li>
+<p><code>end</code>指向最后一个元素的下一个位置</p>
+</li>
+<li>
+<p>同样需要两种版本，应对<code>const myVector </code>调用（只读）</p>
+</li>
+</ul>
+<p>这样才能实现如下的<code>for</code>循环遍历</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> x : v) &#123;</span><br><span class="line">    std::cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (T* it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    T x = *it;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然这个和真正的STL比起来，还是差非常多的</p>
+<p>完整版本如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>     <span class="comment">// for cout, endl</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span>    <span class="comment">// for std::out_of_range</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstddef&gt;</span>      <span class="comment">// for size_t</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span>    <span class="comment">// for std::copy</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myVector</span> &#123;</span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">    T* elements;  </span><br><span class="line">    <span class="type">size_t</span> capacity;</span><br><span class="line">    <span class="type">size_t</span> current_size;    </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">myVector</span>() : <span class="built_in">elements</span>(<span class="literal">nullptr</span>), <span class="built_in">capacity</span>(<span class="number">0</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    ~<span class="built_in">myVector</span>()&#123;</span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">myVector</span>(<span class="type">const</span> myVector&amp; other) : <span class="built_in">capacity</span>(other.capacity), <span class="built_in">current_size</span>(other.current_size)&#123;</span><br><span class="line">        elements = <span class="keyword">new</span> T[capacity];</span><br><span class="line">        <span class="built_in">copy</span>(other.elements, other.elements + current_size, elements);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    myVector&amp; <span class="keyword">operator</span>= (<span class="type">const</span> myVector&amp; other)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> != &amp;other)&#123;</span><br><span class="line">            <span class="keyword">delete</span>[] elements;</span><br><span class="line">            capacity = other.capacity;</span><br><span class="line">            current_size = other.current_size;</span><br><span class="line">            elements = <span class="keyword">new</span> T[other.capacity];</span><br><span class="line">            <span class="built_in">copy</span>(other.elements, other.elements + current_size, elements);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index)&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> elements[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> elements[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reserve</span><span class="params">(<span class="type">size_t</span> newCapacity)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (newCapacity &gt; capacity)&#123;</span><br><span class="line">            T* newElements = <span class="keyword">new</span> T[newCapacity];</span><br><span class="line">            <span class="built_in">copy</span>(elements, elements + current_size, newElements);</span><br><span class="line">            <span class="keyword">delete</span>[] elements;</span><br><span class="line">            elements = newElements;</span><br><span class="line">            capacity = newCapacity;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size == capacity)&#123;</span><br><span class="line">            capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        elements[current_size++] = input;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size) current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">const</span> <span class="type">size_t</span> index, <span class="type">const</span> T&amp; input)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt; current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = current_size; i &gt; index; i--)&#123;</span><br><span class="line">            elements[i] = elements[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        elements[index] = input;</span><br><span class="line">        current_size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">        current_size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">T* <span class="title">begin</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> elements;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">T* <span class="title">end</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> elements + current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> T* <span class="title">begin</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> elements;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> T* <span class="title">end</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> elements + current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>简单测试</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    myVector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line"></span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">10</span>);</span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">20</span>);</span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用范围 for 遍历（因为你写了 begin()/end()）</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> val : vec) &#123;</span><br><span class="line">        cout &lt;&lt; val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    vec.<span class="built_in">insert</span>(<span class="number">1</span>, <span class="number">99</span>);  <span class="comment">// 在索引1的位置插入99</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> val : vec) &#123;</span><br><span class="line">        cout &lt;&lt; val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    vec.<span class="built_in">pop_back</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Size: &quot;</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    vec.<span class="built_in">clear</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After clear, size: &quot;</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出为</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> </span><br><span class="line"><span class="number">10</span> <span class="number">99</span> <span class="number">20</span> <span class="number">30</span> </span><br><span class="line">Size: <span class="number">3</span></span><br><span class="line">After clear, size: <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>为预期结果</p>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-01T12:37:17+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2025年7月1日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2025/06/30/%E6%89%8B%E6%92%95STL/&title=手撕STL - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2025/06/30/%E6%89%8B%E6%92%95STL/&title=手撕STL - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2025/06/30/%E6%89%8B%E6%92%95STL/&title=手撕STL - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2025/06/28/C++%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/'>
+          <p class='title'>C++基础知识总结（面向对象）<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>首先的话解释一下什么是类吧
+12345class student &#123;    string name;    int age;&#125;;  // ← 这里必须有分号！
+就是带clas...</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2025/06/30/%E6%89%8B%E6%92%95STL/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+      <p cst>评论区</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="https://schema.org.cn/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
+
+
+<section class="widget toc-wrapper desktop mobile" id="toc-div" >
+  
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+      
+  </div>
+</section>
+
+  
+
+</div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+        </div>
+        
+  
+  <footer class="footer clearfix"  itemscope itemtype="https://schema.org.cn/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    
+      <meting-js
+        theme='#1BCDFC'
+        autoplay='false'
+        volume='0.7'
+        loop='all'
+        order='list'
+        fixed='false'
+        list-max-height='320px'
+        server='netease'
+        type='playlist'
+        id='3175833810'
+        list-folded='true'>
+      </meting-js>
+    
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#6.0.0-alpha.1" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_site_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © since 2017 XXX</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/all.min.css");
+  
+  
+  volantis.css("https://unpkg.com/font-awesome-animation@1.1.1/css/font-awesome-animation.min.css");
+  
+  
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.css");
+  
+</script>
+
+<!-- required -->
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+</script>
+
+
+
+
+  <script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/19.1.3/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1660614606622/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css");
+
+  
+    (async () => {
+      // APlayer 需要在  MetingJS 之前加载
+      await volantis.js("https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js")
+      await volantis.js("https://unpkg.com/meting@2.0.1/dist/Meting.min.js")
+    
+    })();
+
+    function SetAPlayerPlugin(){
+      let Metings = document.querySelectorAll('meting-js');
+      if (Metings.length === 0) {return;};
+      if (Metings[0].aplayer && Metings[0].aplayer.on) {
+        // improve the accessibility https://web.dev/button-name/
+        document.querySelectorAll(".aplayer-icon-menu").forEach(e=>{
+          e.setAttribute("aria-label","Aplayer Menu")
+        })
+        // message see: /layout/_plugins/message/script.ejs
+        
+          try {
+            setTimeout(() => {
+              Metings.forEach((item, index) => {
+                const aplayerItem = item.aplayer; if(!aplayerItem) return;
+                const rightAplayerCheck = 'true' === 'true'
+                  && item.meta.id === '3175833810';
+                if(rightAplayerCheck && typeof RightMenuAplayer !="undefined") RightMenuAplayer.checkAPlayer();
+                if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
+                  aplayerItem.on('play', function messagePlay() {
+                    let index = aplayerItem.list.index;
+                    let title = aplayerItem.list.audios[index].title;
+                    let artist = aplayerItem.list.audios[index].artist;
+                    setTimeout(() => {
+                      VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                        icon: 'fa-solid fa-play',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX'
+                      });
+                    }, 100)
+                  });
+                }
+                if(aplayerItem.events.events.pause.every(item => {return item.name !== 'messagePause'})) {
+                  aplayerItem.on('pause', function messagePause() {
+                    let index = aplayerItem.list.index;
+                    let title = aplayerItem.list.audios[index].title;
+                    let artist = aplayerItem.list.audios[index].artist;
+                    setTimeout(() => {
+                      // 歌曲播放结束也会触发 pause 事件，为了避免错误提示，等待一会儿
+                      if(aplayerItem.paused) {
+                        VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                          icon: 'fa-solid fa-pause',
+                          transitionIn: 'flipInX',
+                          transitionOut: 'flipOutX'
+                        });
+                      }
+                    }, 100)
+                  });
+                }
+              });
+            }, 500)
+          } catch (error) { console.error(error); }
+        
+      }else{
+        volantis.requestAnimationFrame(SetAPlayerPlugin)
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+      SetAPlayerPlugin();
+    });
+  
+</script>
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = 'dark';
+    } else {
+      volantis.giscus.Theme = 'light';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function p_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"suhanhan-cpu/suhanhan-cpu.github.io","repo-id":"R_kgDONaeQRw","category":"Announcements","category-id":"DIC_kwDONaeQR84ClCS7","mapping":"pathname","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  p_giscus();
+  volantis.dark.push(dark_giscus);
+</script>
+
+    
+
+
+
+
+  <script defer src="https://npm.onmicrosoft.cn/penndu@16.0.0/bsz.js"></script>
+
+
+<!-- optional -->
+
+  <script>
+  async function loadSearchScript() {
+    
+        
+    
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.js"></script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  Waves.attach('.flat-btn', ['waves-button']);
+  Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+  Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+  Waves.attach('.flat-box', ['waves-block']);
+  Waves.attach('.float-box', ['waves-block', 'waves-float']);
+  Waves.attach('.waves-image');
+  Waves.init();
+});
+</script>
+
+
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1660614606622/libs/comment_typing/comment_typing.js"></script>
+
+
+
+
+  <script>
+
+
+
+  function p_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(p_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://cdn.bootcdn.net/ajax/libs/Swiper/11.1.14/swiper-bundle.min.css");
+    volantis.js("https://cdn.bootcdn.net/ajax/libs/Swiper/11.1.14/swiper-bundle.min.js").then(() => {
+      p_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function p_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+</script>
+
+
+
+  <script>
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.min.css");
+  volantis.js("https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js").then(() => {
+    Pace.options.restartOnPushState = false;
+    // 阅读进度
+    volantis.scroll.push(() => {
+      Pace.stop();
+      Pace.trigger('start');
+      Pace.bar.update(volantis.scroll.progress() * 100);
+      document.body.className = document.body.className.replaceAll("pace-running ","");
+    },"阅读进度")
+    // todo：配置项开关, 哪些页面添加阅读进度
+  })
+</script>
+
+
+
+
+<script>
+  function listenSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const targets = []
+    const sections = Array.from(navItems).forEach((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        link.getAttribute("href") ? decodeURI(link.getAttribute("href")).replace("#", "") : link.getAttribute("toc-action").split("toc-")[1] // 兼容 hexo-blog-encrypt
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      if (link.getAttribute("href")) {
+        link.setAttribute("toc-action", "toc-" + decodeURI(link.getAttribute("href")).replace("#", ""))
+        link.removeAttribute("href")
+      }
+      // 配置 点击 触发新的锚点定位
+      if (target && target.id) {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          // 这里的 addTop 是通过错位使得 toc 自动展开.
+          volantis.scroll.to(target, { addTop: 5, observer: true })
+          // Anchor id
+          history.pushState(null, document.title, "#" + target.id);
+        });
+      }
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex = 0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    if (targets[0]) {
+      volantis.scroll.push(() => {
+        if (targets[0].getBoundingClientRect().top >= 0) {
+          volantis.activateNavIndex = 0
+        } else if (targets[targets.length - 1].getBoundingClientRect().top < 0) {
+          volantis.activateNavIndex = targets.length - 1
+        } else {
+          for (let index = 0; index < targets.length; index++) {
+            const target0 = targets[index];
+            const target1 = targets[(index + 1) % targets.length];
+            if (target0.getBoundingClientRect().top < 0 && target1.getBoundingClientRect().top >= 0) {
+              volantis.activateNavIndex = index
+              break;
+            }
+          }
+        }
+        activateNavByIndex(navItems[volantis.activateNavIndex])
+      })
+    }
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    volantis.requestAnimationFrame(listenSidebarTOC)
+  });
+</script>
+
+
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"https://schema.org.cn","@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"https://schema.org.cn","@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"目前主要还是记录一些关于CTF密码学的学习历程"},{"@context":"https://schema.org.cn","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"suhanhan的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/","name":"就业学习"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/","name":"开发测试"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/","name":"手撕STL"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/vector的实现/","name":"vector的实现"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/06/30/手撕STL/","name":"手撕STL"}}]},{"@context":"https://schema.org.cn","@type":"WebSite","name":"suhanhan的博客","url":"http://example.com/","keywords":null,"description":"目前主要还是记录一些关于CTF密码学的学习历程","author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"目前主要还是记录一些关于CTF密码学的学习历程"},"publisher":{"@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"https://schema.org.cn","@type":"BlogPosting","headline":"手撕STL","description":"记录一下，动手总结巩固一下知识点","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/06/30/%E6%89%8B%E6%92%95STL/"},"author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"suhanhan的博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/06/30/%E6%89%8B%E6%92%95STL/","wordCount":0,"datePublished":"2025-06-30T06:54:00.000Z","dateModified":"2025-07-01T04:37:17.516Z","articleSection":"就业学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+
+    </div>
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/love.js"></script>
+    <!-- 雪花特效 -->
+    <!-- <script type="text/javascript" src="/js/snow.js"></script> ->
+    <!-- 樱花特效 -->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+    <!-- 鼠标滑动特效 -->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+    <!-- 动态标题效果 -->
+    <script type="text/javascript" src="/js/drtitle.js"></script>
+    <!-- 动态线条背景 -->
+    <script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+   <!-- 数学公式转换 -->
+   <link rel="stylesheet" href="https://unpkg.com/katex@0.16.4/dist/katex.min.css">
+   <script defer src="https://unpkg.com/katex@0.16.4/dist/katex.min.js"></script>
+   <script defer src="https://unpkg.com/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
