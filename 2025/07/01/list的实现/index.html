@@ -5,8 +5,8 @@
   <meta name="Volantis" content="6.0.0-alpha.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/categories/"/>
+  
+  <link rel="canonical" href="http://example.com/2025/07/01/list的实现/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -33,17 +33,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>分类 - suhanhan的博客</title>
+  <title>list的实现 - suhanhan的博客</title>
   <meta name="keywords" content="null">
-  <meta desc name="description" content="目前主要还是记录一些关于CTF密码学的学习历程 - suhanhan - suhanhan的博客">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta desc name="description" content="记录一下，动手总结巩固一下知识点 - suhanhan - suhanhan的博客">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="list的实现">
+<meta property="og:url" content="http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="suhanhan的博客">
+<meta property="og:description" content="记录一下，动手总结巩固一下知识点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2024-12-08T13:58:44.000Z">
-<meta property="article:modified_time" content="2024-12-08T14:17:43.089Z">
+<meta property="article:published_time" content="2025-07-01T14:28:00.000Z">
+<meta property="article:modified_time" content="2025-07-02T07:44:28.201Z">
 <meta property="article:author" content="suhanhan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -2101,7 +2103,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2409,108 +2411,374 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
+  <article itemscope itemtype="https://schema.org.cn/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/01/list的实现/">
+  <span hidden itemprop="publisher" itemscope itemtype="https://schema.org.cn/Organization">
+    <meta itemprop="name" content="suhanhan的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="https://schema.org.cn/Post">
+    <meta itemprop="name" content="suhanhan的博客">
+    <meta itemprop="description" content="目前主要还是记录一些关于CTF密码学的学习历程">
+  </span>
   
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
     
-      <div class='post-wrapper'>
-        <article id="cat" class="post article white-box reveal shadow floatable blur">
-          <h2>分类</h2>
-          <div class="all-cats">
-            
-              
-                <a class="" href="/categories/crypto/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;crypto</span>
-                  <span class="title">
-                    (15)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;日常学习</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%97%A5%E5%B8%B8%E6%AF%94%E8%B5%9B/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;日常比赛</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%AF%94%E8%B5%9B/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;比赛</span>
-                  <span class="title">
-                    (10)
-                  </span>
-                </a>
-              
-                <a class="" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;就业学习</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;开发测试</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;手撕STL</span>
-                  <span class="title">
-                    (3)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;deque的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/list%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;list的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;vector的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class="" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;就业方面</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/%E7%AE%97%E6%B3%95/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;算法</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-            
-          </div>
-          <br>
+    
+    
+      <h1 class="title" itemprop="name headline">
+        list的实现
+      </h1>
+      <div class='new-meta-box'>
+        
           
-        </article>
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="https://schema.org.cn/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">suhanhan</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  
+  
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/">就业学习</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/">开发测试</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/">手撕STL</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/list%E7%9A%84%E5%AE%9E%E7%8E%B0/">list的实现</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">就业学习</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/" itemprop="url"><span itemprop="name">开发测试</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/" itemprop="url"><span itemprop="name">手撕STL</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/list%E7%9A%84%E5%AE%9E%E7%8E%B0/" itemprop="url"><span itemprop="name">list的实现</span></a>
+      </span>
+    
+  </div>
+  
+
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-07-01T22:28:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2025年7月1日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_page_pv">
+        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+      </span>
+        
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
     
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>首先介绍一下C++中<code>class</code>和<code>struct</code>的区别吧</p>
+<ul>
+<li><code>struct</code>默认访问权限和默认继承方式都是<code>public</code>，对外部都是可见的，方便访问，如果用<code>class</code>还得设置<code>public</code></li>
+<li><code>class</code>都是<code>private</code></li>
+<li><code>struct</code>一般用于简单的数据结构，用于打包一些数据成员</li>
+<li><code>class</code>一般用于封装行为和数据的复杂类型，有继承、多态等等</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myList</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        T data;</span><br><span class="line">        Node* next;</span><br><span class="line">        Node* prev;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">Node</span>(<span class="type">const</span> T&amp; data_, Node* next_ = <span class="literal">nullptr</span>, Node* prev_ = <span class="literal">nullptr</span>) : <span class="built_in">data</span>(data_), <span class="built_in">next</span>(next_), <span class="built_in">prev</span>(prev_) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node* head;</span><br><span class="line">    Node* tail;</span><br><span class="line">    <span class="type">size_t</span> current_size;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>每个节点都是一个结构体，有三样东西</p>
+<ul>
+<li><code>data</code>是节点的数据，类型为<code>T</code></li>
+<li><code>next</code>是一个指针，指向下一个节点</li>
+<li><code>prev</code>是一个指针，指向上一个节点</li>
+</ul>
+</li>
+<li>
+<p><code>struct</code>里面也有构造函数，进行了初始化</p>
+</li>
+<li>
+<p>还有着头节点<code>head</code>和尾部节点<code>prev</code></p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">myList</span>() : <span class="built_in">head</span>(<span class="literal">nullptr</span>), <span class="built_in">tail</span>(<span class="literal">nullptr</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">~<span class="built_in">myList</span>()&#123;</span><br><span class="line">    <span class="built_in">clear</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>同样有构造函数和析构函数，<code>clear</code>下面实现</p>
+<p>接下来就是功能的编写了</p>
+<p><code>push_back</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; value)</span></span>&#123;</span><br><span class="line">    Node* temp = <span class="keyword">new</span> <span class="built_in">Node</span>(value, <span class="literal">nullptr</span>, tail);</span><br><span class="line">    <span class="keyword">if</span> (tail) tail -&gt; next = temp;</span><br><span class="line">    <span class="keyword">else</span> head = temp;</span><br><span class="line"></span><br><span class="line">    tail = temp;</span><br><span class="line">    current_size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>首先为传进来的值创建一个节点，这个节点的<code>next</code>指针肯定是空的（因为新加进来的），<code>prev</code>指针，肯定指向之前链表的尾部</p>
+</li>
+<li>
+<p>这个节点的前后指针处理好了，就要考虑之前链表尾部的节点了，也要处理一下这个节点的前后指针</p>
+<ul>
+<li>如果之前是有节点的，那么就把这个节点的<code>next</code>指针也指向新加进来的节点，<code>prev</code>指针已经在创建节点到时候就弄好了</li>
+<li>如果之前根本没有节点，也就是<code>tail</code>是空的，那么头节点也就是最新加进来的节点</li>
+</ul>
+</li>
+<li>
+<p>然后就是尾部节点要更新为最新加进来的节点</p>
+</li>
+<li>
+<p>尺寸+1</p>
+</li>
+<li>
+<p>这边注意不能<code>delete temp</code>，这样的话会释放这个节点对应的内存空间，就会破坏链表结构了，但是可以把temp置空，因为temp本来就是一个临时的，但其他除了函数他就会自己销毁，加不加都一样</p>
+</li>
+</ul>
+<p><code>pop_back</code>和<code>pop_front</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Node* temp = tail -&gt; prev;</span><br><span class="line">    <span class="keyword">delete</span> tail;</span><br><span class="line">    tail = temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (tail) tail -&gt; next = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">else</span> head = <span class="literal">nullptr</span>;</span><br><span class="line">    current_size--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop_front</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Node* temp = head -&gt; next;</span><br><span class="line">    <span class="keyword">delete</span> head;</span><br><span class="line">    head = temp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (head) head -&gt; prev = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">else</span> tail = <span class="literal">nullptr</span>;</span><br><span class="line">    current_size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边讲其中一个就行，原理都差不多</p>
+<ul>
+<li>首先就是直接删除了尾部节点，并得到新的尾部节点<code>tail</code></li>
+<li>接下去就开始处理新尾部节点的指针问题</li>
+<li>然后看看弹出的前一个节点是否存在
+<ul>
+<li>如果存在，就把新尾部节点的<code>next</code>指针 为空</li>
+<li>如果不存在，说明链表中已经没有节点了，头节点指针 置空</li>
+</ul>
+</li>
+<li>尺寸-1</li>
+</ul>
+<p><code>size</code>获取长度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> current_size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>clear</code>清空<code>list</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (head)&#123;</span><br><span class="line">        Node* temp = head;</span><br><span class="line">        head = head -&gt; next;</span><br><span class="line">        <span class="keyword">delete</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">    tail = <span class="literal">nullptr</span>;</span><br><span class="line">    current_size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要考虑节点占用的内存，所以要循环释放，不能直接<code>current_size = 0</code></li>
+<li>从前往后删除，处理完头节点之后记得把尾节点指针也置空</li>
+<li>尺寸为0</li>
+</ul>
+<p>重写<code>[]</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">T&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> index) &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= current_size)</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Node* temp = head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; index; i++) &#123;</span><br><span class="line">        temp = temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> T&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> index) <span class="type">const</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= current_size)</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Node* temp = head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; index; i++) &#123;</span><br><span class="line">        temp = temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>因为链表的节点都是相互连接的，从前往后即可</li>
+</ul>
+<p><code>empty</code> 检测链表是否为空</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> current_size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>find</code>函数是找值所对应节点的数据的地址</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">T* <span class="title">find</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">    Node* temp = head;</span><br><span class="line">    <span class="keyword">while</span> (temp &amp;&amp; temp -&gt; data != val)&#123;</span><br><span class="line">        temp = temp -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (temp) <span class="keyword">return</span> &amp;temp -&gt; data;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>就是循环遍历直到找到那个值对应的第一个节点，然后返回节点数据的指针，也就是地址</li>
+</ul>
+<p><code>	remove</code>函数的实现，去除值为<code>val</code>的第一个节点</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">    Node* temp = head;</span><br><span class="line">    <span class="keyword">while</span> (temp &amp;&amp; temp -&gt; data != val)&#123;</span><br><span class="line">        temp = temp -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!temp) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (temp != head &amp;&amp; temp != tail)&#123;</span><br><span class="line">        temp -&gt; prev -&gt; next = temp -&gt; next;</span><br><span class="line">        temp -&gt; next -&gt; prev = temp -&gt; prev;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp == head &amp;&amp; temp == tail)&#123;</span><br><span class="line">        head = <span class="literal">nullptr</span>;</span><br><span class="line">        tail = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp == head)&#123;</span><br><span class="line">        head = head -&gt; next;</span><br><span class="line">        head -&gt; prev = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        tail = tail -&gt; prev;</span><br><span class="line">        tail -&gt; next = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> temp;</span><br><span class="line">    temp = <span class="literal">nullptr</span>;</span><br><span class="line">    current_size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先要先找到这个节点，找不到就直接<code>return</code></li>
+<li>然后要删除这个节点的时候，要分四种情况
+<ul>
+<li>如果是中间节点的话，要处理好这个节点的前节点和后节点的指针关系</li>
+<li>如果只有一个节点的情况下（即是头节点，又是尾节点），要把头尾指针置空</li>
+<li>如果只是头节点，处理好第二个节点的<code>prev</code>指针，同时更新头节点</li>
+<li>如果只是尾节点，处理好倒二个节点的<code>next</code>指针，同时更新尾节点</li>
+</ul>
+</li>
+<li>最后释放<code>temp</code>指向的内存空间（<code>delete</code>释放，但实际上<code>temp</code>仍指向这块内存），并且把这个指针置空（可选，防止悬挂指针）</li>
+<li>尺寸-1</li>
+</ul>
+<p>然后是迭代器接口的编写</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node* <span class="title">begin</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Node* <span class="title">end</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> Node* <span class="title">begin</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> Node* <span class="title">end</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那肯定还是比不上标准的STL库，完整代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myList</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        T data;</span><br><span class="line">        Node* next;</span><br><span class="line">        Node* prev;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">Node</span>(<span class="type">const</span> T&amp; data_, Node* next_ = <span class="literal">nullptr</span>, Node* prev_ = <span class="literal">nullptr</span>) : <span class="built_in">data</span>(data_), <span class="built_in">next</span>(next_), <span class="built_in">prev</span>(prev_) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node* head;</span><br><span class="line">    Node* tail;</span><br><span class="line">    <span class="type">size_t</span> current_size;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">myList</span>() : <span class="built_in">head</span>(<span class="literal">nullptr</span>), <span class="built_in">tail</span>(<span class="literal">nullptr</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    ~<span class="built_in">myList</span>()&#123;</span><br><span class="line">        <span class="built_in">clear</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; value)</span></span>&#123;</span><br><span class="line">        Node* temp = <span class="keyword">new</span> <span class="built_in">Node</span>(value, <span class="literal">nullptr</span>, tail);</span><br><span class="line">        <span class="keyword">if</span> (tail) tail -&gt; next = temp;</span><br><span class="line">        <span class="keyword">else</span> head = temp;</span><br><span class="line"></span><br><span class="line">        tail = temp;</span><br><span class="line">        current_size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Node* temp = tail -&gt; prev;</span><br><span class="line">        <span class="keyword">delete</span> tail;</span><br><span class="line">        tail = temp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tail) tail -&gt; next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> head = <span class="literal">nullptr</span>;</span><br><span class="line">        current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop_front</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Node* temp = head -&gt; next;</span><br><span class="line">        <span class="keyword">delete</span> head;</span><br><span class="line">        head = temp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (head) head -&gt; prev = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> tail = <span class="literal">nullptr</span>;</span><br><span class="line">        current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (head)&#123;</span><br><span class="line">            Node* temp = head;</span><br><span class="line">            head = head -&gt; next;</span><br><span class="line">            <span class="keyword">delete</span> temp;</span><br><span class="line">        &#125;</span><br><span class="line">        tail = <span class="literal">nullptr</span>;</span><br><span class="line">        current_size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    T&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> index) &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= current_size)</span><br><span class="line">            <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Node* temp = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; index; i++) &#123;</span><br><span class="line">            temp = temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> T&amp; <span class="keyword">operator</span>[](<span class="type">size_t</span> index) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= current_size)</span><br><span class="line">            <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Node* temp = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; index; i++) &#123;</span><br><span class="line">            temp = temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current_size == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">T* <span class="title">find</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">        Node* temp = head;</span><br><span class="line">        <span class="keyword">while</span> (temp &amp;&amp; temp -&gt; data != val)&#123;</span><br><span class="line">            temp = temp -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (temp) <span class="keyword">return</span> &amp;temp -&gt; data;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">        Node* temp = head;</span><br><span class="line">        <span class="keyword">while</span> (temp &amp;&amp; temp -&gt; data != val)&#123;</span><br><span class="line">            temp = temp -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!temp) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (temp != head &amp;&amp; temp != tail)&#123;</span><br><span class="line">            temp -&gt; prev -&gt; next = temp -&gt; next;</span><br><span class="line">            temp -&gt; next -&gt; prev = temp -&gt; prev;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp == head &amp;&amp; temp == tail)&#123;</span><br><span class="line">            head = <span class="literal">nullptr</span>;</span><br><span class="line">            tail = <span class="literal">nullptr</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp == head)&#123;</span><br><span class="line">            head = head -&gt; next;</span><br><span class="line">            head -&gt; prev = <span class="literal">nullptr</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tail = tail -&gt; prev;</span><br><span class="line">            tail -&gt; next = <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> temp;</span><br><span class="line">        temp = <span class="literal">nullptr</span>;</span><br><span class="line">        current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Node* <span class="title">begin</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Node* <span class="title">end</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> Node* <span class="title">begin</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> Node* <span class="title">end</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>测试用例如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    myList&lt;<span class="type">int</span>&gt; lst;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 push_back ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    lst.<span class="built_in">push_back</span>(<span class="number">10</span>);</span><br><span class="line">    lst.<span class="built_in">push_back</span>(<span class="number">20</span>);</span><br><span class="line">    lst.<span class="built_in">push_back</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = lst.<span class="built_in">begin</span>(); p; p = p-&gt;next) &#123;</span><br><span class="line">        std::cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 pop_back ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    lst.<span class="built_in">pop_back</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = lst.<span class="built_in">begin</span>(); p; p = p-&gt;next) &#123;</span><br><span class="line">        std::cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 pop_front ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    lst.<span class="built_in">pop_front</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = lst.<span class="built_in">begin</span>(); p; p = p-&gt;next) &#123;</span><br><span class="line">        std::cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 operator[] ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;lst[0] = &quot;</span> &lt;&lt; lst[<span class="number">0</span>] &lt;&lt; std::endl;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;lst[1] = &quot;</span> &lt;&lt; lst[<span class="number">1</span>] &lt;&lt; std::endl; <span class="comment">// 越界</span></span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::out_of_range&amp; e) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;异常捕获：&quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 find ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="type">int</span>* p = lst.<span class="built_in">find</span>(<span class="number">20</span>);</span><br><span class="line">    <span class="keyword">if</span> (p) std::cout &lt;&lt; <span class="string">&quot;找到元素: &quot;</span> &lt;&lt; *p &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">else</span> std::cout &lt;&lt; <span class="string">&quot;未找到元素&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 remove ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    lst.<span class="built_in">push_back</span>(<span class="number">40</span>);</span><br><span class="line">    lst.<span class="built_in">push_back</span>(<span class="number">50</span>);</span><br><span class="line">    lst.<span class="built_in">remove</span>(<span class="number">40</span>); <span class="comment">// 删除中间</span></span><br><span class="line">    lst.<span class="built_in">remove</span>(<span class="number">20</span>); <span class="comment">// 删除头</span></span><br><span class="line">    lst.<span class="built_in">remove</span>(<span class="number">50</span>); <span class="comment">// 删除尾</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = lst.<span class="built_in">begin</span>(); p; p = p-&gt;next) &#123;</span><br><span class="line">        std::cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;== 测试 clear ==&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    lst.<span class="built_in">clear</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;是否为空: &quot;</span> &lt;&lt; (lst.<span class="built_in">empty</span>() ? <span class="string">&quot;是&quot;</span> : <span class="string">&quot;否&quot;</span>) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">== 测试 push_back ==</span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> </span><br><span class="line">== 测试 pop_back ==</span><br><span class="line"><span class="number">10</span> <span class="number">20</span> </span><br><span class="line">== 测试 pop_front ==</span><br><span class="line"><span class="number">20</span> </span><br><span class="line">== 测试 <span class="keyword">operator</span>[] ==</span><br><span class="line">lst[<span class="number">0</span>] = <span class="number">20</span></span><br><span class="line">lst[<span class="number">1</span>] = 异常捕获：越界访问</span><br><span class="line">== 测试 find ==</span><br><span class="line">找到元素: <span class="number">20</span></span><br><span class="line">== 测试 remove ==</span><br><span class="line"></span><br><span class="line">== 测试 clear ==</span><br><span class="line">是否为空: 是</span><br></pre></td></tr></table></figure>
+
+  </div>
   
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-02T15:44:28+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2025年7月2日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=list的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=list的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=list的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>deque的实现</p>
+          <p class='content'>​
+deque的底层和vector是很相似的
+12345T* elements;size_t frontIndex;size_t backIndex;size_t capacity;size_t...</p>
+        </a>
+      
+      
+        <a class='next' href='/2025/06/30/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'>vector的实现<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>我们先一步一步来实现
+12345678template &lt;typename T&gt;class myVector &#123;private:     T* elements;     ...</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+      <p cst>评论区</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="https://schema.org.cn/WPSideBar">
   
@@ -3157,7 +3425,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"https://schema.org.cn","@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"https://schema.org.cn","@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"目前主要还是记录一些关于CTF密码学的学习历程"},{"@context":"https://schema.org.cn","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"suhanhan的博客"}}]},{"@context":"https://schema.org.cn","@type":"WebSite","name":"suhanhan的博客","url":"http://example.com/","keywords":null,"description":"目前主要还是记录一些关于CTF密码学的学习历程","author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"目前主要还是记录一些关于CTF密码学的学习历程"},"publisher":{"@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"https://schema.org.cn","@type":"BlogPosting","headline":"分类","description":"目前主要还是记录一些关于CTF密码学的学习历程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/categories/index.html"},"author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"suhanhan的博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/categories/index.html","wordCount":0,"datePublished":"2024-12-08T13:58:44.000Z","dateModified":"2024-12-08T14:17:43.089Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"https://schema.org.cn","@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"https://schema.org.cn","@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"目前主要还是记录一些关于CTF密码学的学习历程"},{"@context":"https://schema.org.cn","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"suhanhan的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/","name":"就业学习"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/","name":"开发测试"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/","name":"手撕STL"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/list的实现/","name":"list的实现"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/07/01/list的实现/","name":"list的实现"}}]},{"@context":"https://schema.org.cn","@type":"WebSite","name":"suhanhan的博客","url":"http://example.com/","keywords":null,"description":"目前主要还是记录一些关于CTF密码学的学习历程","author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"目前主要还是记录一些关于CTF密码学的学习历程"},"publisher":{"@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"https://schema.org.cn","@type":"BlogPosting","headline":"list的实现","description":"记录一下，动手总结巩固一下知识点","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/"},"author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"suhanhan的博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/","wordCount":0,"datePublished":"2025-07-01T14:28:00.000Z","dateModified":"2025-07-02T07:44:28.201Z","articleSection":"就业学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -5,8 +5,8 @@
   <meta name="Volantis" content="6.0.0-alpha.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/categories/"/>
+  
+  <link rel="canonical" href="http://example.com/2025/07/02/deque的实现/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -33,17 +33,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>分类 - suhanhan的博客</title>
+  <title>deque的实现 - suhanhan的博客</title>
   <meta name="keywords" content="null">
-  <meta desc name="description" content="目前主要还是记录一些关于CTF密码学的学习历程 - suhanhan - suhanhan的博客">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta desc name="description" content="记录一下，动手总结巩固一下知识点 - suhanhan - suhanhan的博客">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="deque的实现">
+<meta property="og:url" content="http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="suhanhan的博客">
+<meta property="og:description" content="记录一下，动手总结巩固一下知识点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2024-12-08T13:58:44.000Z">
-<meta property="article:modified_time" content="2024-12-08T14:17:43.089Z">
+<meta property="article:published_time" content="2025-07-02T08:49:00.000Z">
+<meta property="article:modified_time" content="2025-07-02T15:45:46.381Z">
 <meta property="article:author" content="suhanhan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -2101,7 +2103,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2409,108 +2411,384 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
+  <article itemscope itemtype="https://schema.org.cn/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/02/deque的实现/">
+  <span hidden itemprop="publisher" itemscope itemtype="https://schema.org.cn/Organization">
+    <meta itemprop="name" content="suhanhan的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="https://schema.org.cn/Post">
+    <meta itemprop="name" content="suhanhan的博客">
+    <meta itemprop="description" content="目前主要还是记录一些关于CTF密码学的学习历程">
+  </span>
   
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
     
-      <div class='post-wrapper'>
-        <article id="cat" class="post article white-box reveal shadow floatable blur">
-          <h2>分类</h2>
-          <div class="all-cats">
-            
-              
-                <a class="" href="/categories/crypto/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;crypto</span>
-                  <span class="title">
-                    (15)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;日常学习</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%97%A5%E5%B8%B8%E6%AF%94%E8%B5%9B/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;日常比赛</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/crypto/%E6%AF%94%E8%B5%9B/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;比赛</span>
-                  <span class="title">
-                    (10)
-                  </span>
-                </a>
-              
-                <a class="" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;就业学习</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;开发测试</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;手撕STL</span>
-                  <span class="title">
-                    (3)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;deque的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/list%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;list的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;vector的实现</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class="" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;就业方面</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/%E7%AE%97%E6%B3%95/">
-                  <span><i class='fa-solid fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;算法</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-            
-          </div>
-          <br>
+    
+    
+      <h1 class="title" itemprop="name headline">
+        deque的实现
+      </h1>
+      <div class='new-meta-box'>
+        
           
-        </article>
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="https://schema.org.cn/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">suhanhan</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  
+  
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/">就业学习</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/">开发测试</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/">手撕STL</a><span class="sep"></span><a class="category-link" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/">deque的实现</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">就业学习</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/" itemprop="url"><span itemprop="name">开发测试</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/" itemprop="url"><span itemprop="name">手撕STL</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <a href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/" itemprop="url"><span itemprop="name">deque的实现</span></a>
+      </span>
+    
+  </div>
+  
+
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-07-02T16:49:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2025年7月2日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_page_pv">
+        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+      </span>
+        
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
     
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>​</p>
+<p><code>deque</code>的底层和<code>vector</code>是很相似的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T* elements;</span><br><span class="line"><span class="type">size_t</span> frontIndex;</span><br><span class="line"><span class="type">size_t</span> backIndex;</span><br><span class="line"><span class="type">size_t</span> capacity;</span><br><span class="line"><span class="type">size_t</span> current_size;</span><br></pre></td></tr></table></figure>
+<p>先介绍一下这四个吧，方便下面介绍deque的原理</p>
+<ul>
+<li><code>elements</code>就和<code>vector</code>的一样</li>
+<li><code>frontIndex</code>：指向队列中第一个有效元素的位置</li>
+<li><code>backIndex</code>：指向下一个可以插入元素的位置 ，也就是循环数组最后一个元素的下一个位置</li>
+<li><code>capacity</code>：<code>elements</code>的容量</li>
+<li><code>current_size</code>：队列中实际存储的元素数量</li>
+</ul>
+<p><code>deque</code>的原理是基于循环数组实现的，那什么是循环数组呢？</p>
+<p>假设说我们有数组</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">capacity = <span class="number">5</span>;</span><br><span class="line">elements = [_, _, _, _, _];</span><br></pre></td></tr></table></figure>
+<p>逻辑上想象成一个“圆圈”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[0] → [1] → [2] → [3] → [4] </span><br><span class="line"> ↑                        ↓</span><br><span class="line"> ←←←←←←←←←←←←←←←←←←←←←←←←←</span><br></pre></td></tr></table></figure>
+<p><strong>初始状态（空）</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">elements = [_, _, _, _, _]</span><br><span class="line">frontIndex = <span class="number">0</span></span><br><span class="line">backIndex  = <span class="number">0</span></span><br><span class="line">size       = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><strong>连续 push_back(1), push_back(2), push_back(3)</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">elements = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, _, _]</span><br><span class="line">frontIndex = <span class="number">0</span></span><br><span class="line">backIndex  = <span class="number">3</span></span><br><span class="line">size       = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><strong>现在 push_front(0)</strong></p>
+<ul>
+<li>如果你现在 <code>push_front()</code> 插入了元素，前指针 <code>frontIndex</code> 就会往左移，但如果它已经是 0，就会绕回最后一格（<code>index 4</code>），这就是 取模 % <code>capacity</code> 的作用！</li>
+<li>减法要<code>+ capacity</code>，因为C++的取模和Python是不一样的，他是和整数除法相关的
+<ul>
+<li><strong>C++</strong> 中，取模结果的符号 <strong>跟被除数（左边的数）相同</strong>。</li>
+<li><strong>Python</strong> 中，取模结果的符号 <strong>跟除数（右边的数）相同</strong>，且结果总是 <strong>非负（如果除数是正数）</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>例子：<code>-7 % 3</code></p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>表达式</th>
+<th>结果</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++</td>
+<td><code>-7 % 3</code></td>
+<td>-1</td>
+<td>结果和 -7 同号（负数）</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>-7 % 3</code></td>
+<td>2</td>
+<td>结果和 3 同号（正数）</td>
+</tr>
+</tbody>
+</table>
+<p>所以要实现和Python一样的，可以先模完再加一个模数进去即可，<code>也就是(a % b + b) % b</code></p>
+<p>我们把 frontIndex 往前挪：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frontIndex = (frontIndex - <span class="number">1</span> + capacity) % capacity;</span><br></pre></td></tr></table></figure>
+<p>所以</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frontIndex = (<span class="number">0</span> - <span class="number">1</span> + <span class="number">5</span>) % <span class="number">5</span> = <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>现在数组变成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">elements = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, _, <span class="number">0</span>]</span><br><span class="line">frontIndex = <span class="number">4</span></span><br><span class="line">backIndex  = <span class="number">3</span></span><br><span class="line">size       = <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><strong>逻辑顺序其实是：0, 1, 2, 3</strong></p>
+<p><strong>如果再插一个元素（push_back(4)）</strong></p>
+<p>现在队列满了，这时候就会进行扩容</p>
+<p>扩容为 capacity = 10，并把旧数据按逻辑顺序（从 frontIndex 开始）复制过去，变成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">elements = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, _, _, _, _, _]</span><br><span class="line">frontIndex = <span class="number">0</span></span><br><span class="line">backIndex  = <span class="number">5</span></span><br><span class="line">size       = <span class="number">5</span></span><br><span class="line">capacity   = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>介绍完大致原理，现在就可以继续动手实现了</p>
+<p>首先的话肯定是构造函数和析构函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">myDeque</span>() : <span class="built_in">elements</span>(<span class="literal">nullptr</span>), <span class="built_in">frontIndex</span>(<span class="number">0</span>), <span class="built_in">backIndex</span>(<span class="number">0</span>), <span class="built_in">capacity</span>(<span class="number">0</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">~<span class="built_in">myDeque</span>()&#123;</span><br><span class="line">    <span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">delete</span>[] elements;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后是扩容函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">reserve</span><span class="params">(<span class="type">size_t</span> newCapacity)</span></span>&#123;</span><br><span class="line">    T* newElement = <span class="keyword">new</span> T[newCapacity];</span><br><span class="line"></span><br><span class="line">    <span class="type">size_t</span> temp = frontIndex;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; current_size; i++)&#123;</span><br><span class="line">        newElement[i] = elements[temp];</span><br><span class="line">        temp = (temp + <span class="number">1</span>) % capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] elements;</span><br><span class="line">    elements = newElement;</span><br><span class="line">    capacity = newCapacity;</span><br><span class="line">    frontIndex = <span class="number">0</span>;</span><br><span class="line">    backIndex = current_size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也是两倍扩容，队列满的时候</li>
+<li>从第一个有效元素开始向后遍历，遍历次数根据<code>current_size</code>即可</li>
+<li>取模实现对循环数组的遍历</li>
+<li>因为扩容是开辟新空间，所以记得修改<code>frontIndex</code>和<code>backIndex</code></li>
+</ul>
+<p><code>push_back</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">    elements[backIndex] = val;</span><br><span class="line">    backIndex = (backIndex + <span class="number">1</span>) % capacity;</span><br><span class="line">    current_size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>尾部加入元素的时候，只要更新<code>backIndex</code>就行了，同时注意取模</p>
+</li>
+<li>
+<p>尺寸+1</p>
+</li>
+</ul>
+<p><code>push_front</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_front</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">    frontIndex = ((frontIndex - <span class="number">1</span>) % capacity + capacity) % capacity;</span><br><span class="line">    elements[frontIndex] = val;</span><br><span class="line">    current_size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>头部加入元素的时候，只要更新<code>frontIndex</code>就行了，同时注意遵循<code>(a % b + b) % b</code></li>
+<li>注意是先更新<code>frontIndex</code>，再进行赋值，而<code>backIndex</code>是先赋值再更新的</li>
+<li>尺寸-1</li>
+</ul>
+<p><code>pop_front</code>和<code>pop_back</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size == <span class="number">0</span>) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;此时队列为空&quot;</span>);</span><br><span class="line">    backIndex = ((backIndex - <span class="number">1</span>) % capacity + capacity) % capacity;</span><br><span class="line">    current_size--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pop_front</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current_size == <span class="number">0</span>) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;此时队列为空&quot;</span>);</span><br><span class="line">    frontIndex = (frontIndex + <span class="number">1</span>) % capacity;</span><br><span class="line">    current_size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一样的逻辑，没什么好说的</p>
+<p>重载<code>[]</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index)&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> elements[(frontIndex + index) % capacity];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>注意越界检测</p>
+</li>
+<li>
+<p>利用<code>frontIndex</code>获取在循环数组中的位置</p>
+</li>
+</ul>
+<p>STL库中<code>Deque</code>有两种访问方式，一种是使用符号<code>[]</code>，另一种是使用<code>at()</code><br />
+区别在于遇到<code>Index</code>越界的情况</p>
+<p><code>at()</code>会抛出异常，告诉我们下标越界了，而<code>[]</code>不会，它会导致未定义行为</p>
+<p>所以<code>at()</code>更安全，但是效率比<code>[]</code>低一些，需要看代码运行的具体任务进行取舍</p>
+<p><code>size</code>获取长度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> current_size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>clear</code>的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (current_size)&#123;</span><br><span class="line">        <span class="built_in">pop_front</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个的<code>begin</code>和<code>end</code>不好实现，需要用到<code>iterator</code>，后续再补充，累了</p>
+<p>对应完整代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myDeque</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T* elements;</span><br><span class="line">    <span class="type">size_t</span> frontIndex;</span><br><span class="line">    <span class="type">size_t</span> backIndex;</span><br><span class="line">    <span class="type">size_t</span> capacity;</span><br><span class="line">    <span class="type">size_t</span> current_size;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">myDeque</span>() : <span class="built_in">elements</span>(<span class="literal">nullptr</span>), <span class="built_in">frontIndex</span>(<span class="number">0</span>), <span class="built_in">backIndex</span>(<span class="number">0</span>), <span class="built_in">capacity</span>(<span class="number">0</span>), <span class="built_in">current_size</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    ~<span class="built_in">myDeque</span>()&#123;</span><br><span class="line">        <span class="built_in">clear</span>();</span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reserve</span><span class="params">(<span class="type">size_t</span> newCapacity)</span></span>&#123;</span><br><span class="line">        T* newElement = <span class="keyword">new</span> T[newCapacity];</span><br><span class="line"></span><br><span class="line">        <span class="type">size_t</span> temp = frontIndex;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; current_size; i++)&#123;</span><br><span class="line">            newElement[i] = elements[temp];</span><br><span class="line">            temp = (temp + <span class="number">1</span>) % capacity;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span>[] elements;</span><br><span class="line">        elements = newElement;</span><br><span class="line">        capacity = newCapacity;</span><br><span class="line">        frontIndex = <span class="number">0</span>;</span><br><span class="line">        backIndex = current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">        elements[backIndex] = val;</span><br><span class="line">        backIndex = (backIndex + <span class="number">1</span>) % capacity;</span><br><span class="line">        current_size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push_front</span><span class="params">(<span class="type">const</span> T&amp; val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size == capacity) capacity ? <span class="built_in">reserve</span>(<span class="number">2</span> * capacity) : <span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">        frontIndex = ((frontIndex - <span class="number">1</span>) % capacity + capacity) % capacity;</span><br><span class="line">        elements[frontIndex] = val;</span><br><span class="line">        current_size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop_back</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size == <span class="number">0</span>) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;此时队列为空&quot;</span>);</span><br><span class="line">        backIndex = ((backIndex - <span class="number">1</span>) % capacity + capacity) % capacity;</span><br><span class="line">        current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop_front</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (current_size == <span class="number">0</span>) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;此时队列为空&quot;</span>);</span><br><span class="line">        frontIndex = (frontIndex + <span class="number">1</span>) % capacity;</span><br><span class="line">        current_size--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    T&amp; <span class="keyword">operator</span>[] (<span class="type">size_t</span> index)&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= current_size) <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(<span class="string">&quot;越界访问&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> elements[(frontIndex + index) % capacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current_size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (current_size)&#123;</span><br><span class="line">            <span class="built_in">pop_front</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>测试用例如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里假设你已经把 myDeque 的实现放在上面或头文件中</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    myDeque&lt;<span class="type">int</span>&gt; dq;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 push_back</span></span><br><span class="line">    dq.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">    dq.<span class="built_in">push_back</span>(<span class="number">2</span>);</span><br><span class="line">    dq.<span class="built_in">push_back</span>(<span class="number">3</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After push_back: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; dq.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">        cout &lt;&lt; dq[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 push_front</span></span><br><span class="line">    dq.<span class="built_in">push_front</span>(<span class="number">0</span>);</span><br><span class="line">    dq.<span class="built_in">push_front</span>(<span class="number">-1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After push_front: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; dq.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">        cout &lt;&lt; dq[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 pop_back</span></span><br><span class="line">    dq.<span class="built_in">pop_back</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After pop_back: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; dq.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">        cout &lt;&lt; dq[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 pop_front</span></span><br><span class="line">    dq.<span class="built_in">pop_front</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After pop_front: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; dq.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">        cout &lt;&lt; dq[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 operator[]</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Element at index 1: &quot;</span> &lt;&lt; dq[<span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 size</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Current size: &quot;</span> &lt;&lt; dq.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试 clear</span></span><br><span class="line">    dq.<span class="built_in">clear</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After clear, size: &quot;</span> &lt;&lt; dq.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试异常 pop</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        dq.<span class="built_in">pop_front</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> exception&amp; e) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Caught exception (pop_front): &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        dq.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> exception&amp; e) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Caught exception (pop_back): &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试异常 operator[]</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        cout &lt;&lt; dq[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> exception&amp; e) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Caught exception (operator[]): &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">After push_back: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> </span><br><span class="line">After push_front: <span class="number">-1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> </span><br><span class="line">After pop_back: <span class="number">-1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> </span><br><span class="line">After pop_front: <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> </span><br><span class="line">Element at index <span class="number">1</span>: <span class="number">1</span></span><br><span class="line">Current size: <span class="number">3</span></span><br><span class="line">After clear, size: <span class="number">0</span></span><br><span class="line"><span class="function">Caught <span class="title">exception</span> <span class="params">(pop_front)</span>: 此时队列为空</span></span><br><span class="line"><span class="function">Caught exception (pop_back): 此时队列为空</span></span><br><span class="line"><span class="function">Caught exception (operator[]): 越界访问</span></span><br><span class="line"><span class="function">Process exited with status <span class="number">0</span></span></span><br></pre></td></tr></table></figure>
+
+  </div>
   
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-07-02T23:45:46+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2025年7月2日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=deque的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=deque的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/&title=deque的实现 - suhanhan的博客&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2025/07/01/list%E7%9A%84%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'>list的实现<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>首先介绍一下C++中class和struct的区别吧
+
+struct默认访问权限和默认继承方式都是public，对外部都是可见的，方便访问，如果用class还得设置public
+class都是p...</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+      <p cst>评论区</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="https://schema.org.cn/WPSideBar">
   
@@ -3157,7 +3435,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"https://schema.org.cn","@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"https://schema.org.cn","@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"目前主要还是记录一些关于CTF密码学的学习历程"},{"@context":"https://schema.org.cn","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"suhanhan的博客"}}]},{"@context":"https://schema.org.cn","@type":"WebSite","name":"suhanhan的博客","url":"http://example.com/","keywords":null,"description":"目前主要还是记录一些关于CTF密码学的学习历程","author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"目前主要还是记录一些关于CTF密码学的学习历程"},"publisher":{"@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"https://schema.org.cn","@type":"BlogPosting","headline":"分类","description":"目前主要还是记录一些关于CTF密码学的学习历程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/categories/index.html"},"author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"suhanhan的博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/categories/index.html","wordCount":0,"datePublished":"2024-12-08T13:58:44.000Z","dateModified":"2024-12-08T14:17:43.089Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"https://schema.org.cn","@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"https://schema.org.cn","@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"目前主要还是记录一些关于CTF密码学的学习历程"},{"@context":"https://schema.org.cn","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"suhanhan的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/","name":"就业学习"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/","name":"开发测试"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/","name":"手撕STL"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/就业学习/开发测试/手撕STL/deque的实现/","name":"deque的实现"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/07/02/deque的实现/","name":"deque的实现"}}]},{"@context":"https://schema.org.cn","@type":"WebSite","name":"suhanhan的博客","url":"http://example.com/","keywords":null,"description":"目前主要还是记录一些关于CTF密码学的学习历程","author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"目前主要还是记录一些关于CTF密码学的学习历程"},"publisher":{"@type":"Organization","name":"suhanhan的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"https://schema.org.cn","@type":"BlogPosting","headline":"deque的实现","description":"记录一下，动手总结巩固一下知识点","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/"},"author":{"@type":"Person","name":"suhanhan","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"suhanhan的博客","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/07/02/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/","wordCount":0,"datePublished":"2025-07-02T08:49:00.000Z","dateModified":"2025-07-02T15:45:46.381Z","articleSection":"就业学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
