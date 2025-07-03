@@ -2109,7 +2109,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1751471173340),
+    lastupdate: new Date(1751562408799),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2406,63 +2406,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <div class="cover-wrapper  dock" id='half'>
-        
-  <div class='cover-bg lazyload placeholder' data-bg="https://macos-typora-1326830707.cos.ap-nanjing.myqcloud.com/img202412081753734.png"></div>
-
-<div class='cover-body'>
-  <div class='top'>
-    
-    
-      <p class="title"><font><span>suhanhan's blog</span></font></p>
-    
-    
-  </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
-        
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <i class='fa-solid fa-rss fa-fw'></i><p>博客</p>
-            </a>
-          
-            <a href="/categories/"
-              
-              
-              active-action="action-categories">
-              <i class='fa-solid fa-folder-open fa-fw'></i><p>分类</p>
-            </a>
-          
-            <a href="/archives/"
-              
-              
-              active-action="action-archives">
-              <i class='fa-solid fa-archive fa-fw'></i><p>归档</p>
-            </a>
-          
-            <a href="/friends/"
-              
-              
-              active-action="action-friends">
-              <i class='fa-solid fa-link fa-fw'></i><p>友链</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              active-action="action-about">
-              <i class='fa-solid fa-info-circle fa-fw'></i><p>关于</p>
-            </a>
-          
-        
-      </div>
-    </div>
-  </div>
-</div>
-
+        <% if (theme.plugins.parallax.enable) { %>
+  <div id="parallax-window"></div>
+<% } else if (theme.plugins.lazyload && theme.plugins.lazyload.enable) { %>
+  <div class='cover-bg lazyload placeholder' data-bg="<%- theme.cover.background %>"></div>
+<% } else { %>
+  <div class='cover-bg' style='background-image:url(<%- theme.cover.background %>)'></div>
+<% } %>
+<%- partial(theme.cover.layout_scheme) %>
       </div>
     
   
@@ -2872,17 +2823,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/"
             active-action="action-categoriesE5B0B1E4B89AE5ADA6E4B9A0"
-            ><div class='name'>就业学习</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>就业学习</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/"
             active-action="action-categoriesE5B0B1E4B89AE5ADA6E4B9A0E5BC80E58F91E6B58BE8AF95"
-            ><div class='name'>开发测试</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>开发测试</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/"
             active-action="action-categoriesE5B0B1E4B89AE5ADA6E4B9A0E5BC80E58F91E6B58BE8AF95E6898BE69295STL"
-            ><div class='name'>手撕STL</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>手撕STL</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/HashTable%E7%9A%84%E5%AE%9E%E7%8E%B0/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/HashTable%E7%9A%84%E5%AE%9E%E7%8E%B0/"
+            active-action="action-categoriesE5B0B1E4B89AE5ADA6E4B9A0E5BC80E58F91E6B58BE8AF95E6898BE69295STLHashTableE79A84E5AE9EE78EB0"
+            ><div class='name'>HashTable的实现</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/deque%E7%9A%84%E5%AE%9E%E7%8E%B0/"
@@ -2898,16 +2854,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             title="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/" href="/categories/%E5%B0%B1%E4%B8%9A%E5%AD%A6%E4%B9%A0/%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95/%E6%89%8B%E6%92%95STL/vector%E7%9A%84%E5%AE%9E%E7%8E%B0/"
             active-action="action-categoriesE5B0B1E4B89AE5ADA6E4B9A0E5BC80E58F91E6B58BE8AF95E6898BE69295STLvectorE79A84E5AE9EE78EB0"
             ><div class='name'>vector的实现</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/"
-            active-action="action-categoriesE5B0B1E4B89AE696B9E99DA2"
-            ><div class='name'>就业方面</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/%E7%AE%97%E6%B3%95/" href="/categories/%E5%B0%B1%E4%B8%9A%E6%96%B9%E9%9D%A2/%E7%AE%97%E6%B3%95/"
-            active-action="action-categoriesE5B0B1E4B89AE696B9E99DA2E7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
